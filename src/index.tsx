@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { render } from 'react-dom';
+import Table from 'react-bootstrap/Table';
 
 interface Product{
     name: string
@@ -29,32 +30,28 @@ function MyComponent(){
     })
 
     return (
-
-        <table>
-            
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Categories</th>
-  </tr>
-  {products.map(product => (
-  <tr>
-  <td>{product.name}</td>
-  <td>{product.price}</td>
-  <td>{product.category.name}</td>
-</tr>
-
-
-
-
-        // <ul>
-        //   {products.map(product => (
-        //     <li>
-        //       {product.name}
-        //       {product.category.id}
-        //       {product.category.name}
-        //     </li>
-          ))}
-      </table>
+        <div className='row'>
+            <div className='col-6 mt-4 ms-4'>
+            <Table striped bordered hover size="sm" mt-4 bg-danger>    
+            <tr>
+                <th scope="col">Name</th>
+                <th>Price</th>
+                <th>Categories</th>
+            </tr>
+            {products.map(product => (
+                <tr>
+                    <td>{product.name}</td>
+                    <td>{product.price}</td>
+                    <td>{product.category.name}</td>
+                </tr>
+            ))}
+        </Table>
+            </div>
+            <div className='col-6'> </div>
+        </div>
     );
+
+
+
+    
 }
