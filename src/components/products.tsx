@@ -13,7 +13,7 @@ export function MyComponent() {
   const addToCart = (product: Product) => {
     localStorage.setItem(product.name, JSON.stringify(product));
 
-    let p: Product = JSON.parse(localStorage.getItem('as') || '{}');
+    // let p: Product = JSON.parse(localStorage.getItem('as') || '{}');
   };
 
   return (

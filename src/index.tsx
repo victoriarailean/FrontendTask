@@ -1,5 +1,5 @@
 import { MyComponent } from 'components/products';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 
 render(
