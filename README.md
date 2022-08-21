@@ -1,68 +1,27 @@
 # React Developer Test
+1.Created page with list of products:
+  - fetched list of products
+  - show all the products in a table
 
-It's necessary to create React JS application, using only [Typescript](https://www.typescriptlang.org/), [React Router](https://reacttraining.com/react-router/web/guides/quick-start) and [React Context](https://reactjs.org/docs/context.html), that will show list of products and gets possibility for user adding desired products in his cart.
 
-Keep away from unnecessary dependecies, keep it simple.
+![photo_2022-08-21_22-59-27](https://user-images.githubusercontent.com/67733994/185808744-11b691e7-716f-41ef-a50c-d7b55a376330.jpg)
 
-## Getting started
+- added possibility to add in cart
+![photo2](https://user-images.githubusercontent.com/67733994/185808942-2bfe6de2-2bde-40b9-b709-cf0f2807d687.jpg)
+![photo3](https://user-images.githubusercontent.com/67733994/185808952-a4969bf2-fb11-4b4d-a5f4-84196897795a.jpg)
 
-1. Start client using `yarn serve:client`
-   it will start on [localhost:3000](http://localhost:3000)
-2. Start server using `yarn serve:server`
-   it will start on [localhost:3001](http://localhost:3001)
+- add edpossibility to remove from cart directly in list of products table
+![photo5](https://user-images.githubusercontent.com/67733994/185809026-53f44929-37fa-47bd-b6f8-09f5a494afce.jpg)
 
-## API Documentation
+- added posibility to filter products by categories
+![photo_7jpg](https://user-images.githubusercontent.com/67733994/185809126-4267a6ab-3da4-4049-8992-7896d5792cf9.jpg)
+![photo_8jpg](https://user-images.githubusercontent.com/67733994/185809131-c0b726a4-5c20-40c9-8ac7-5554da9320c5.jpg)
+![photo_9](https://user-images.githubusercontent.com/67733994/185809135-e7bb1525-b966-4746-9a7e-f33ed2837257.jpg)
+![photo_10](https://user-images.githubusercontent.com/67733994/185809138-fd3d2166-8f34-40b7-99d8-7db9e3dc77d0.jpg)
 
-1. `http://localhost:3001/api/products/ (GET)` - get list on products.
+- created page with list of added products
+-showed all the added products in a table
+- added possibility to remove added product
+- showed total price for all added products
 
-   ```ts
-   interface Product {
-     name: string;
-     category: Category;
-     price: number;
-   }
-   ```
-
-2. `http://localhost:3001/api/product/categories/ (GET)` - get list of categories.
-   ```ts
-   interface Category {
-     id: string;
-     name: string;
-   }
-   ```
-
-## Todo:
-
-<ol>
-  <li>Create page with list of products.
-    <ul>
-      <li>Fetch list of products.</li>
-      <li>Show all the products in a table.</li>
-      <li>Add possibility to add in cart.</li>
-      <li>Add possibility to remove from cart directly in list of products table.</li>
-    </ul>
-  </li>
-
-  <li>Add posibility to filter products by <b>categories</b> and sort price by <b>desc</b> or <b>asc</b>.</li>
-
-  <li>Create page with list of added products.
-    <ul>
-      <li>Show all the added products in a table.</li>
-      <li>Add possibility to change quantity of added products.</li>
-      <li>Add possibility to remove added product.</li>
-       <li>Show total price for all added products</li>
-    </ul>
-  </li>
-</ol>
-
-## Examples:
-
-List of products example:
-| Category ^ | Name | Price ^ | Actions |
-|------------------------------|:---------|:--------|:--------------:|
-| Vegetables and legumes/beans | Broccoli | \$0.25 | (-) Select (+) |
-
-List of added products example:
-| Category | Name | Quantity | Price | Actions |
-|------------------------------|:---------|:---------|:------|:--------------:|
-| Vegetables and legumes/beans | Broccoli | 2 | \$0.50 | (-) Remove (+) |
+![photo_11jpg](https://user-images.githubusercontent.com/67733994/185809246-b4b8aa18-fa77-4e59-9c52-67ab539b0772.jpg)
