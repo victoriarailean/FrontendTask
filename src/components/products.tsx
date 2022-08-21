@@ -1,13 +1,21 @@
+import { Category } from 'models/category';
 import { Product } from 'models/product';
 import React, { useEffect, useState } from 'react';
 
 export default function ProductsComponent() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<Category[]>([])
+  const [filterCategory, setFilterCategory] = useState('')
 
   useEffect(() => {
     fetch('http://localhost:3001/api/products')
       .then((res) => res.json())
       .then((result) => setProducts(result));
+    
+    fetch('http://localhost:3001/api/product/categories')
+      .then((res) => res.json())
+      .then((result) => setCategories(result));
+    
   }, []);
 
   const addToCart = (product: Product) => {
@@ -28,17 +36,35 @@ export default function ProductsComponent() {
     }
   } 
 
-  const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
+  const onFilterClick = (id :string) => {
+    setFilterCategory(id)
+  }
 
-    const button: HTMLButtonElement = event.currentTarget;
-    setClickedButton(button.name);
-  };
+  const productsList = (): Product[] => {
+    if (filterCategory != ''){
+      return products.filter((product) => product.category.id == filterCategory)
+    } else {
+      return products
+    }
+  }
 
   return (
     <div className='container-fluid'>
       <div className='row'>
         <div className='col mt-4'>
+          <div className="dropdown mb-2">
+            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              FIlter by category
+            </button>
+            
+            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a className="dropdown-item" onClick={() => onFilterClick('')}>All</a>
+              {categories.map((category) => (
+                <a key={category.id} className="dropdown-item" onClick={() => onFilterClick(category.id)}>{category.name}</a>
+              ))}
+            </div>
+
+          </div>
           <table className="table table-striped table-bordered table-hover">
             <thead>
               <tr>
@@ -48,7 +74,7 @@ export default function ProductsComponent() {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
+              {productsList().map((product) => (
                 <tr key={product.name}>
                   <td>{product.name}</td>
                   <td>{product.price}</td>
@@ -65,8 +91,5 @@ export default function ProductsComponent() {
       </div>
     </div>
   );
-}
-function setClickedButton(name: string) {
-  throw new Error('Function not implemented.');
 }
 
