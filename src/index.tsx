@@ -1,10 +1,13 @@
-import { MyComponent } from 'components/products';
+import Main from 'main';
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM, { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-render(
-  <div>
-    <MyComponent></MyComponent>
-  </div>,
-  document.getElementById('root'),
+ReactDOM.render(
+    <React.StrictMode>
+        <BrowserRouter>
+            <Main/>
+        </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
